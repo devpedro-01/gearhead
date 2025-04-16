@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gearhead</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body, html {
+      height: 100%;
+      font-family: 'Orbitron', sans-serif;
+      color: #00fff2;
+      overflow-x: hidden;
+    }
+
+    #video-bg {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.6);
+    }
+
+    .overlay {
+      display: none; /* Removido a sobreposição */
+    }
+
+    main {
+      padding: 50px 20px;
+      text-align: center;
+      z-index: 2;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 3.5em;
+      color: #ff007f;
+      text-shadow: 0 0 15px #ff007f, 0 0 30px #ff007f;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      font-size: 2em;
+      margin: 40px 0 20px;
+      text-shadow: 0 0 10px #00f7ff;
+    }
+
+    p, ul li {
+      max-width: 700px;
+      margin: 20px auto;
+      font-size: 1.2em;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 0 12px #00ffcc66;
+    }
+
+    .image-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      margin: 30px 0;
+      z-index: 2;
+      position: relative;
+    }
+
+    .image-grid img {
+      width: 340px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #00fff588;
+      transition: transform 0.3s ease;
+    }
+
+    .image-grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff007f;
+    }
+
+    audio {
+      margin-top: 20px;
+      filter: drop-shadow(0 0 10px #00ffccaa);
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin: 30px auto;
+      max-width: 1100px;
+    }
+
+    .car-card {
+      background: rgba(0,0,0,0.4);
+      padding: 15px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px #00ffff88;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 10px;
+      height: 200px;
+    }
+
+    .carousel img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: none; /* Impede que todas as imagens apareçam de uma vez */
+      border-radius: 10px;
+    }
+
+    .carousel img.active {
+      display: block; /* Exibe a imagem ativa */
+    }
+
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 10px;
+    }
+
+    .carousel-controls button {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: #00fff2;
+      font-size: 1.5em;
+      cursor: pointer;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+    }
+
+    #topo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      background-color: #0ff;
+      color: #000;
+      font-weight: bold;
+      padding: 10px 20px;
+      border-radius: 30px;
+      box-shadow: 0 0 15px #0ff;
+      border: none;
+      cursor: pointer;
+    }
+
+    form {
+      margin-top: 40px;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin-inline: auto;
+      box-shadow: 0 0 15px #00ffcc55;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      border: none;
+      border-radius: 8px;
+      background-color: #111;
+      color: #fff;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2em; }
+      .image-grid img { width: 90%; }
+    }
+  </style>
+</head>
+<body>
+
+  <video id="video-bg" autoplay loop muted>
+    <source src="video lista.mp4" type="video/mp4">
+  </video>
+
+  <main>
+    <h1>🚗 O que eu gosto</h1>
+
+    <audio controls autoplay loop>
+      <source src="ohh ahh.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="image-grid">
+      <img src="fueltech.jpg" alt="Logo fueltech">
+      <img src="area 47.jpg" alt="Carro na pista">
+      <img src="remap2.jpg" alt="Remapeamento">
+      <img src="turbao.jpg" alt="Turbo power">
+      <img src="fueltech2.jpg" alt="motor">
+      <img src="apzao.jpg" alt="motor apzao">
+    </div>
+
+    <p><strong>Ser gearhead é viver pra acelerar.</strong> Não é só gostar de carro, é sentir o cheiro de gasolina e o som do turbo no peito. É perder tempo na garagem e ganhar vida na estrada.</p>
+
+    <section>
+      <h2>Máquinas favoritas</h2>
+      <div class="car-grid">
+        <div class="car-card">
+          <div class="carousel" data-car="gol">
+            <img src="gol.jpg" class="active">
+            <img src="gol2.jpg">
+            <img src="gol3.jpg">
+            <div class="carousel-controls">
+              <button onclick="prevSlide('gol')">‹</button>
+              <button onclick="nextSlide('gol')">›</button>
+            </div>
+          </div>
+          <div class="car-info">🏁 Gol AP – O famoso "3 kilimei"</div>
+        </div>
+
+        <div class="car-card">
+          <div class="carousel" data-car="omega">
+            <img src="omega.jpg" class="active">
+            <img src="omega2.jpg">
+            <div class="carousel-controls">
+              <button onclick="prevSlide('omega')">‹</button>
+              <button onclick="nextSlide('omega')">›</button>
+            </div>
+          </div>
+          <div class="car-info">🔥 Omega 4.1</div>
+        </div>
+
+        <div class="car-card">
+          <div class="carousel" data-car="Civic">
+            <img src="civicsi1.jpg" class="active">
+            <img src="civicsi2.jpg">
+            <div class="carousel-controls">
+              <button onclick="prevSlide('Civic')">‹</button>
+              <button onclick="nextSlide('Civic')">›</button>
+            </div>
+          </div>
+          <div class="car-info">🚙💨 Civic Si</div>
+        </div>
+
+        <div class="car-card">
+          <div class="carousel" data-car="bmw135">
+            <img src="bmw135.jpg" class="active">
+            <img src="bmw2.jpg">
+            <img src="bmw3.jpg">
+            <img src="bmw4.jpg">
+            <img src="bmw5.jpg">
+            <div class="carousel-controls">
+              <button onclick="prevSlide('bmw135')">‹</button>
+              <button onclick="nextSlide('bmw135')">›</button>
+            </div>
+          </div>
+          <div class="car-info">🚙 BMW 135M</div>
+        </div>
+      </div>
+    </section>
+
+    <form>
+      <h2>Entre na pista comigo</h2>
+      <input type="text" placeholder="Seu nome" required>
+      <input type="email" placeholder="Seu e-mail" required>
+      <textarea rows="4" placeholder="Mensagem..."></textarea>
+      <button type="submit">Enviar</button>
+    </form>
+  </main>
+
+  <button id="topo" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Topo</button>
+
+  <script>
+    const carousels = {
+      gol: 0,
+      omega: 0,
+      Civic: 0,
+      bmw135: 0
+    };
+
+    function showSlide(car, index) {
+      const container = document.querySelector(`.carousel[data-car="${car}"]`);
+      const images = container.querySelectorAll('img');
+      images.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    function nextSlide(car) {
+      const container = document.querySelector(`.carousel[data-car="${car}"]`);
+      const total = container.querySelectorAll('img').length;
+      carousels[car] = (carousels[car] + 1) % total;
+      showSlide(car, carousels[car]);
+    }
+
+    function prevSlide(car) {
+      const container = document.querySelector(`.carousel[data-car="${car}"]`);
+      const total = container.querySelectorAll('img').length;
+      carousels[car] = (carousels[car] - 1 + total) % total;
+      showSlide(car, carousels[car]);
+    }
+  </script>
+</body>
+</html>
